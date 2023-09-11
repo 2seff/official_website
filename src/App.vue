@@ -4,13 +4,14 @@
   </div>
 </template>
 
+<style scoped lang="scss">
+
+</style>
 <style>
-#app {
-  height: 100vh;
-  width: 100%;
-  overflow-y: visible;
+body{
+  margin: 0;
 }
-::-webkit-scrollbar {
-  display: none;
+#app {
+  overflow-y: visible;
 }
 </style>
