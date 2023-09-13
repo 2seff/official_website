@@ -1,5 +1,5 @@
 <template>
-  <div class="header_index">
+  <div class="header_index" :class="{ scrolled: scrolled, hidden: hidden }">
     <div class="content">
       <div class="header_left">
         <div class="logo">
@@ -28,6 +28,9 @@ import logo from "@/assets/image/tab/Group.png"
 export default {
   data() {
     return {
+      scrolled: false,
+      hidden: false,
+      lastScrollPosition: 0,
       logo:logo,
       list: [
         { label: "首页", id: 1, path: "mainHome",class:"nav one" },
@@ -45,10 +48,27 @@ export default {
     login(){
 
     },
+    handleScroll() {
+      var scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (scrollPosition > this.lastScrollPosition) {
+        // 向下滚动
+        this.hidden = true;
+      } else {
+        // 向上滚动
+        this.hidden = false;
+      }
+
+      this.lastScrollPosition = scrollPosition;
+      this.scrolled = scrollPosition > 0;
+    },
   },
   created() {
-
-  }
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  destroyed() {
+    window.removeEventListener("scroll", this.handleScroll);
+  },
 };
 </script>
 
@@ -135,5 +155,33 @@ export default {
       }
     }
   }
+}
+
+.scrolled{
+  background: #0083ff;
+  opacity: 0.8;
+}
+.hidden {
+  opacity: 0; /* 隐藏导航栏 */
+  transform: translateY(-100%); /* 将导航栏向上移动 */
+  transition: opacity 1s ease, transform 1s ease; /* 添加过渡效果 */
+}
+
+.hidden-enter-active {
+  transition: opacity 1s ease, transform 1s ease; /* 添加过渡效果 */
+}
+
+.hidden-leave-active {
+  transition: opacity 1s ease, transform 1s ease; /* 添加过渡效果 */
+}
+
+.hidden-enter {
+  opacity: 0; /* 进入过渡前的初始状态 */
+  transform: translateY(-100%); /* 进入过渡前的初始状态 */
+}
+
+.hidden-leave-to {
+  opacity: 0; /* 离开过渡后的结束状态 */
+  transform: translateY(-100%); /* 离开过渡后的结束状态 */
 }
 </style>

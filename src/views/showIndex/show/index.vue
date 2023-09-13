@@ -15,9 +15,7 @@
           </p>
         </div>
         <div></div>
-        <div class="illustration">
-          <img :src="image2" alt="">
-        </div>
+        <div class="illustration"></div>
       </swiper-slide>
       <swiper-slide class="substance two">
         <div class="font">
@@ -31,9 +29,7 @@
           </p>
         </div>
         <div></div>
-        <div class="illustration">
-                    <img :src="image2" alt="">
-        </div>
+        <div class="illustration"></div>
       </swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
@@ -42,21 +38,19 @@
 
 <script>
 import image from "@/assets/image/show/bigBack.png";
-import image1 from "@/assets/image/show/smallBack.png";
 import image2 from "@/assets/image/show/Vector.png";
 
 export default {
   data() {
     return {
       image: image,
-      image1: image1,
       image2: image2,
       swiperOption: {
         loop: true,
         // autoplay: {
         //   delay: 3000,
         //   stopOnLastSlide: false,
-        //   disableOnInteraction: false
+        //   disableOnInteraction: true
         // },
         autoplay: false,
         pagination: {
@@ -86,14 +80,15 @@ export default {
       width: 100vh;
       display: flex;
       justify-content: space-between;
+      background: url("@/assets/image/show/Mask group.png") no-repeat center;
+      background-size: cover;
 
       p {
         color: #274AFF;
       }
 
       .font {
-        width: 462px;
-        height: 302px;
+        width: 40%;
         margin: auto;
 
         .title {
@@ -118,8 +113,10 @@ export default {
 
       .illustration {
         margin: auto;
-        width: 928px;
-        height: 496.1px;
+        width: 100%;
+        height: 100%;
+        background: url("@/assets/image/show/Vector.png") no-repeat center;
+        background-size: 130%;
       }
     }
   }

@@ -11,6 +11,9 @@
 body{
   margin: 0;
 }
+::-webkit-scrollbar {
+  display: none;
+}
 #app {
   overflow-y: visible;
 }
