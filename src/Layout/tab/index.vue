@@ -46,7 +46,7 @@ export default {
       this.$router.push({path:e})
     },
     login(){
-
+      this.$router.push({ path:"/swiss" })
     },
     handleScroll() {
       var scrollPosition = window.pageYOffset || document.documentElement.scrollTop;

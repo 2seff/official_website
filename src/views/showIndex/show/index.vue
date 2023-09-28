@@ -52,7 +52,7 @@ export default {
         //   stopOnLastSlide: false,
         //   disableOnInteraction: true
         // },
-        autoplay: false,
+        autoplay: true,
         pagination: {
           el: ".swiper-pagination",
           clickable: true
@@ -89,7 +89,7 @@ export default {
 
       .font {
         width: 40%;
-        margin: auto;
+        margin: auto 0 auto 100px;
 
         .title {
           font-family: Roboto;

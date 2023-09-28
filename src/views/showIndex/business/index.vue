@@ -36,7 +36,6 @@ export default {
 .corporate_culture{
   height: 100vh;
   width: 100%;
-  background-color: #CDF0FC;
   .content{
     width: 100%;
     padding-top: 120px;
